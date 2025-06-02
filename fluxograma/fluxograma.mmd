@@ -1,0 +1,30 @@
+graph TD
+    A[Início] --> B{Carregar Dados Excel};
+    B -- Erro Arquivo ou Aba --> C[Erro: Verificar Arquivo ou Aba];
+    B -- Sucesso --> D{Ler Aba BD_Geral};
+    D --> E{Padronizar Nomes Colunas};
+    E -- Colunas Ausentes --> F[Erro: Colunas Nao Encontradas];
+    E -- Sucesso --> G{Limpar e Filtrar Dados};
+    G -- Sem Dados Validos --> H[Erro: Sem Dados Validos];
+    G -- Dados Validos --> I{Calcular SD};
+    I --> J{Aplicar Logaritmo PPV e SD};
+    J --> K{Definir Funcao Linear};
+    K --> L{Realizar Regressao Linear};
+    L --> M{Obter Parametros A e B};
+    M --> N{Calcular K e alpha};
+    N --> O[Imprimir K e alpha];
+    O --> P{Gerar Grafico Regressao Linearizada};
+    P --> Q{Gerar Grafico Curva PPV Original};
+    Q --> R[Fim];
+
+    %% Estilos opcionais para melhor visualização
+    style A fill:#DDEBF7,stroke:#333,stroke-width:2px,color:#000
+    style R fill:#DDEBF7,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#F8D7DA,stroke:#721C24,stroke-width:2px,color:#721C24
+    style F fill:#F8D7DA,stroke:#721C24,stroke-width:2px,color:#721C24
+    style H fill:#F8D7DA,stroke:#721C24,stroke-width:2px,color:#721C24
+    style B fill:#FFF2CC,stroke:#856404,stroke-width:2px,color:#856404
+    style E fill:#FFF2CC,stroke:#856404,stroke-width:2px,color:#856404
+    style G fill:#FFF2CC,stroke:#856404,stroke-width:2px,color:#856404
+    style L fill:#D4EDDA,stroke:#155724,stroke-width:2px,color:#155724
+    style N fill:#D4EDDA,stroke:#155724,stroke-width:2px,color:#155724
